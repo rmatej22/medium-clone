@@ -4,7 +4,7 @@ import {
   registerAction,
   registerFailureAction,
   registerSuccessAction,
-} from '../register.action';
+} from '../actions/register.action';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
