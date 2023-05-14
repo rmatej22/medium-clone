@@ -7,6 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/reducers';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
+import { EffectsModule } from '@ngrx/effects';
+import { RegisterEffect } from './store/effects/register.effect';
 
 const routes = [
   {
@@ -21,6 +23,7 @@ const routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', authReducer),
+    EffectsModule.forFeature([RegisterEffect]),
   ],
   declarations: [RegisterComponent],
   providers: [AuthService],
