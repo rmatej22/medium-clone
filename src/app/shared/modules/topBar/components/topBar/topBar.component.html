@@ -11,6 +11,44 @@
           Home
         </a>
       </li>
+      <ng-container *ngIf="isLoggedIn$ | async">
+        <li class="nav-item">
+          <a class="nav-link"
+             [routerLink]="['/articles/new']">
+            <i class="ion-compose"></i>
+            &nbsp; New Post
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [routerLink]="['/settings']">
+            <i class="ion-gear-a"></i>
+            &nbsp; Settings
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [routerLink]="['/profiles', (currentUser$ | async).username]">
+            <img [src]="(currentUser$ | async).image"
+                 class="user-pic">
+            &nbsp; {{(currentUser$ | async).username}}
+          </a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="isAnonymus$ | async">
+        <li class="nav-item">
+          <a class="nav-link"
+             [routerLink]="['/login']">
+            Sing in
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [routerLink]="['/register']">
+            Sing up
+          </a>
+        </li>
+      </ng-container>
     </ul>
   </div>
 </nav>
