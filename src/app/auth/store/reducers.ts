@@ -71,8 +71,3 @@ export const authReducer = createReducer(
     })
   )
 );
-
-// THIS TYPE OF EXPORTING IS NO LONGER NEEDED
-// export function reducers(state: AuthStateInterface, action: Action) {
-//   return authReducer(state, action);
-// }
